@@ -33,6 +33,11 @@ public class ProductManager : IProductService
         return _ProductDal.GetById(id);
     }
 
+    public List<Product> TGetProductsWithCategories()
+    {
+        return _ProductDal.GetProductsWithCategories();
+    }
+
     public void TUpdate(Product entity)
     {
         _ProductDal.Update(entity);

@@ -7,5 +7,5 @@ public class Booking
     public string Phone { get; set; }
     public string Email { get; set; }
     public int PersonCount { get; set; }
-    public DateTime Time { get; set; }
+    public DateTime Date { get; set; }
 }
