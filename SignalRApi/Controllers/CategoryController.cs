@@ -38,7 +38,7 @@ public class CategoryController : ControllerBase
         return Ok("Kategori basariyla eklendi.");
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteCategory(int id)
     {
         var value = _categoryService.TGetById(id);
@@ -46,7 +46,7 @@ public class CategoryController : ControllerBase
         return Ok("Kategori basariyla silindi.");
     }
 
-    [HttpGet("GetCategory")]
+    [HttpGet("{id}")]
     public IActionResult GetCategory(int id)
     {
         var value = _categoryService.TGetById(id);

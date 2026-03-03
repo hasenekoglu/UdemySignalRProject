@@ -55,12 +55,13 @@ public class ProductController : ControllerBase
            Descripton = createProductDto.Descripton,
            ImageUrl = createProductDto.ImageUrl,
            Price = createProductDto.Price,
-           Status = createProductDto.Status
+           Status = createProductDto.Status,
+           CategoryId = createProductDto.CategoryId,
        });
         return Ok("Urun basariyla eklendi.");
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteProduct(int id)
     {
         var value = _productService.TGetById(id);
@@ -68,7 +69,7 @@ public class ProductController : ControllerBase
         return Ok("Urun basariyla silindi.");
     }
 
-    [HttpGet("GetProduct")]
+    [HttpGet("{id}")]
     public IActionResult GetProduct(int id)
     {
         var value = _productService.TGetById(id);
@@ -85,7 +86,9 @@ public class ProductController : ControllerBase
             Descripton = updateProductDto.Descripton,
             ImageUrl = updateProductDto.ImageUrl,
             Price = updateProductDto.Price,
-            Status = updateProductDto.Status
+            Status = updateProductDto.Status,
+            CategoryId = updateProductDto.CategoryId,
+
         });
         return Ok("Urun basariyla guncellendi.");
     }
