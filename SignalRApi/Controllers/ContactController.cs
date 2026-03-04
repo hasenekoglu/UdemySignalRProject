@@ -40,7 +40,7 @@ public class ContactController : ControllerBase
         return Ok("Iletisim bilgisi basariyla eklendi.");
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteContact(int id)
     {
         var value = _contactService.TGetById(id);
@@ -48,7 +48,7 @@ public class ContactController : ControllerBase
         return Ok("Iletisim bilgisi basariyla silindi.");
     }
 
-    [HttpGet("GetContact")]
+    [HttpGet("{id}")]
     public IActionResult GetContact(int id)
     {
         var value = _contactService.TGetById(id);

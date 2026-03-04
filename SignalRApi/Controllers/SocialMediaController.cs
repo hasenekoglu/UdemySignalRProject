@@ -39,7 +39,7 @@ public class SocialMediaController : ControllerBase
         return Ok("Sosyal Medya basariyla eklendi.");
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteSocialMedia(int id)
     {
         var value = _socialMediaService.TGetById(id);
@@ -47,7 +47,7 @@ public class SocialMediaController : ControllerBase
         return Ok("Sosyal Medya basariyla silindi.");
     }
 
-    [HttpGet("GetSocialMedia")]
+    [HttpGet("{id}")]
     public IActionResult GetSocialMedia(int id)
     {
         var value = _socialMediaService.TGetById(id);

@@ -42,7 +42,7 @@ public class FeatureController : ControllerBase
         return Ok("Ozellik basariyla eklendi.");
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteFeature(int id)
     {
         var value = _featureService.TGetById(id);
@@ -50,7 +50,7 @@ public class FeatureController : ControllerBase
         return Ok("Ozellik basariyla silindi.");
     }
 
-    [HttpGet("GetFeature")]
+    [HttpGet("{id}")]
     public IActionResult GetFeature(int id)
     {
         var value = _featureService.TGetById(id);

@@ -41,7 +41,7 @@ public class TestimonialController : ControllerBase
         return Ok("Musteri Yorum bilgisi basariyla eklendi.");
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteTestimonial(int id)
     {
         var value = _testimonialService.TGetById(id);
@@ -49,7 +49,7 @@ public class TestimonialController : ControllerBase
         return Ok("Musteri Yorum bilgisi basariyla silindi.");
     }
 
-    [HttpGet("GetTestimonial")]
+    [HttpGet("{id}")]
     public IActionResult GetTestimonial(int id)
     {
         var value = _testimonialService.TGetById(id);

@@ -40,7 +40,7 @@ public class DiscountController : ControllerBase
         return Ok("Indirim bilgisi basariyla eklendi.");
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteDiscount(int id)
     {
         var value = _discountService.TGetById(id);
@@ -48,7 +48,7 @@ public class DiscountController : ControllerBase
         return Ok("Indirim bilgisi basariyla silindi.");
     }
 
-    [HttpGet("GetDiscount")]
+    [HttpGet("{id}")]
     public IActionResult GetDiscount(int id)
     {
         var value = _discountService.TGetById(id);

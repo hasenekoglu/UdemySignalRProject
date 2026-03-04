@@ -39,7 +39,7 @@ public class BookingController : ControllerBase
         return Ok("Rezervasyon basariyla eklendi.");
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteBooking(int id)
     {
         var value = _bookingService.TGetById(id);
@@ -63,7 +63,7 @@ public class BookingController : ControllerBase
         return Ok("Rezervasyon basariyla guncellendi.");
     }
 
-    [HttpGet("GetBooking")]
+    [HttpGet("{id}")]
     public IActionResult GetBooking(int id)
     {
         var value = _bookingService.TGetById(id);
