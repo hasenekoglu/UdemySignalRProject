@@ -18,4 +18,60 @@ public class EfProductDal : GenericRepository<Product>, IProductDal
         var values = context.Products.Include(x => x.Category).ToList();
         return values;
     }
+
+    public int ProductCount()
+    {
+        using var context = new SignalRContext();
+        return context.Products.Count();
+    }
+
+    public int ProductCountByCategoryNameDrink()
+    {
+        using var context = new SignalRContext();
+        return context.Products
+            .Where(x => x.CategoryId == (context.Categories
+            .Where(y => y.CategoryName=="Icecek")
+            .Select(z => z.CategoryId).FirstOrDefault())).Count();
+    }
+
+    public int ProductCountByCategoryNameHamburger()
+    {
+       using var context = new SignalRContext();
+        return context.Products
+            .Where(x => x.CategoryId == (context.Categories
+            .Where(y => y.CategoryName=="Hamburger")
+            .Select(z => z.CategoryId).FirstOrDefault())).Count();
+    }
+
+    public string ProductNameByMaxPrice()
+    {
+        using var context = new SignalRContext();
+        return context.Products
+            .Where(x => x.Price == context.Products.Max(y => y.Price))
+            .Select(z => z.ProductName).FirstOrDefault();
+    }
+
+    public string ProductNameByMinPrice()
+    {
+         using var context = new SignalRContext();
+        return context.Products
+            .Where(x => x.Price == context.Products.Min(y => y.Price))
+            .Select(z => z.ProductName).FirstOrDefault();
+    }
+
+    public decimal ProductPriceAvg()
+    {
+        using var context = new SignalRContext(); 
+        return context.Products.Average(x => x.Price); 
+    }
+
+    public decimal ProductAvgPriceByHamburger()
+    {
+        using var context = new SignalRContext();
+        return context.Products
+            .Where(x => x.CategoryId == (context.Categories
+            .Where(y => y.CategoryName=="Hamburger")
+            .Select(z => z.CategoryId).FirstOrDefault()))
+            .Average(x => x.Price);
+    }
 }

@@ -1,0 +1,19 @@
+﻿-- Category Count 
+-- Product Count
+-- Aktif Kategori Sayisi
+-- Pasif Kategori Sayisi
+
+--Kategori Adina Gore Urun Sayisi
+--Kategori Adina Gore Urun Sayisi 2
+
+-- Ortalama Fiyat
+-- En Yüksek Fiyat Urun
+-- En Düşük Fiyat Urun
+-- Ortalama Hamburger Fiyati
+
+-- Toplam Siparis Sayisi
+-- AKtif Siparis Sayisi
+-- Son Siparis Tutari
+-- Kasadaki Tutar
+-- Bugunku kazanc
+-- Ortalama Masa Sayisi
